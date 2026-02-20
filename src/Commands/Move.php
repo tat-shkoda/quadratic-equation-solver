@@ -2,10 +2,10 @@
 
 namespace App\Commands;
 
+use App\Interfaces\CommandInterface;
 use App\Interfaces\MovingObjectInterface;
-use Throwable;
 
-class Move
+class Move implements CommandInterface
 {
 
     public function __construct(
