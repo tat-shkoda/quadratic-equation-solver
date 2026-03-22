@@ -14,7 +14,7 @@ class IoC implements IocInterface
     private static array $scopes = [];
     private static string $currentScope = '';
 
-    public static function resolve(string $key, ...$args): CommandInterface
+    public static function resolve(string $key, ...$args): mixed
     {
         return match ($key) {
             'IoC.Register' => self::register(...$args),
@@ -37,7 +37,7 @@ class IoC implements IocInterface
         return self::getEmptyClass();
     }
 
-    private static function get(string $key, ...$args): CommandInterface
+    private static function get(string $key, ...$args): mixed
     {
         $currentScope = self::$currentScope;
 
