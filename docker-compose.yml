@@ -3,9 +3,6 @@ version: '3.9'
 services:
   php:
     build: .
-    volumes:
-      - ".:/var/www/html"
-    working_dir: /var/www/html
     command: ["vendor/bin/phpunit", "--filter", "MessagingSystemTest", "--colors=always"]
     depends_on:
       kafka:
