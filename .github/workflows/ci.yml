@@ -5,5 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: docker build -t multithread .
-      - run: docker run --rm multithread vendor/bin/phpunit --colors=always
+      - run: docker compose up --exit-code-from php --abort-on-container-exit
+      - run: docker compose down
+        if: always()
