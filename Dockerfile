@@ -9,8 +9,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 WORKDIR /var/www/html
 
-# COPY composer.json composer.lock ./
-COPY composer.json ./
+COPY composer.json composer.lock ./
 
 RUN composer install --prefer-dist --no-progress --no-interaction --optimize-autoloader
 
