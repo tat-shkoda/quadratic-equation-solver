@@ -3,10 +3,20 @@ version: '3.9'
 services:
   php:
     build: .
-    command: ["vendor/bin/phpunit", "--filter", "MessagingSystemTest", "--colors=always"]
+    command: ["vendor/bin/phpunit", "--colors=always"]
+    volumes:
+      - .:/var/www/html
     depends_on:
+      memcached:
+        condition: service_started
       kafka:
         condition: service_healthy
+
+  memcached:
+    container_name: memcached
+    image: memcached:latest
+    ports:
+      - "11211:11211"
 
   kafka:
     image: apache/kafka:latest

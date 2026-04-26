@@ -3,9 +3,10 @@
 namespace App;
 
 use App\Commands\InterpretCommand;
+use App\Interfaces\MessageEndpointInterface;
 use App\Objects\Message;
 
-class MessageEndpoint
+class MessageEndpoint implements MessageEndpointInterface
 {
 
     public function handle(string $json): void
