@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Exceptions;
+use Exception;
 
-class CommandException
+class CommandException extends Exception
 {
 
 }
